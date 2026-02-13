@@ -4,7 +4,7 @@
   left: 0;
   width: 12vh;
   height: 12vh;
-  background: url('/assets/cloud.png') no-repeat center/contain;
+  background: url('./assets/cloud.png') no-repeat center/contain;
   pointer-events: none;
   will-change: transform;
   transform: translate3d(20vw, 0, 0);
