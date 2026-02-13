@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Yip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="min-height:100vh; margin:0; background: #ADD8E6; color: #fff;">
+    <img class="sun" src="./assets/sun.svg" alt="sun">
+    <img class="moon" src="./assets/moon.webp" alt="moon">
+    <div class="cloud" style="width: 18vw; height: 7.5vh; top: 8vh;" data-start="-5" data-end="25"></div>
+    <div class="cloud" style="width: 24vw; height: 10vh; top: 18vh;" data-start="60" data-end="95"></div>
+    <div class="cloud" style="width: 12vw; height: 5.5vh; top: 12vh;" data-start="30" data-end="50"></div>
+    <div class="cloud" style="width: 30vw; height: 13vh; top: 28vh;" data-start="10" data-end="40"></div>
+    <div class="cloud" style="width: 15vw; height: 6.5vh; top: 35vh;" data-start="70" data-end="85"></div>
+    <div class="cloud" style="width: 20vw; height: 8.5vh; top: 22vh;" data-start="45" data-end="60"></div>
+    <div class="cloud" style="width: 26vw; height: 11vh; top: 42vh;" data-start="5" data-end="35"></div>
+    <div class="cloud" style="width: 14vw; height: 6vh; top: 50vh;" data-start="80" data-end="100"></div>
+    <div class="cloud" style="width: 22vw; height: 9.5vh; top: 58vh;" data-start="20" data-end="45"></div>
+    <div class="cloud" style="width: 17vw; height: 7.2vh; top: 68vh;" data-start="50" data-end="75"></div>
+    <div class="cloud" style="width: 28vw; height: 12vh; top: 15vh;" data-start="-10" data-end="30"></div>
+    <div class="cloud" style="width: 16vw; height: 6.8vh; top: 75vh;" data-start="35" data-end="65"></div>
+    <div class="cloud" style="width: 19vw; height: 15vh; top: 65vh;" data-start="-20" data-end="10"></div>
+    <div class="cloud" style="width: 13vw; height: 7vh; top: 50vh;" data-start="-5" data-end="10"></div>
+    <div class="cloud" style="width: 26vw; height: 8vh; top: 30vh;" data-start="-15" data-end="10"></div>
+    <div class="cloud" style="width: 24vw; height: 6.2vh; top: 10vh;" data-start="-35" data-end="5"></div>
+    <div class="card">
+        <div class="card-content">
+            <div class="content-section active" id="home-section">
+                <img class="home-pfp" src="./assets/pfp.png" alt="">
+                <div class="home-title">Gabriel Yip</div>
+                <div class="home-description">CTF enjoyer, reels connoisseur, CS @ UNSW</div>
+                <div class="home-social"><a href="https://github.com/6plosive" target="_blank" rel="noopener me" title="Github"><svg class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"></path></svg></a><a href="https://www.linkedin.com/in/yip-gabriel/" target="_blank" rel="noopener me" title="Linkedin"><svg class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></div>
+            </div>
+            <div class="content-section" id="posts-section">
+                <div class="home-title">Posts</div>
+                <div class="posts-grid">
+                    <a href="https://6plosive.github.io/portfolio/en/posts/rcr-writeup/note-service/" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">RCR 2025 Writeup - Note services</h3>
+                        <span class="post-date">Jun 10, 2025</span>
+                    </a>
+                    <a href="https://6plosive.github.io/portfolio/en/posts/rcr-writeup/3-rsa/" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">RCR 2025 Writeup - 3 RSA</h3>
+                        <span class="post-date">Jun 10, 2025</span>
+                    </a>
+                    <a href="https://6plosive.github.io/portfolio/en/posts/my-first-post/" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">My First Post</h3>
+                        <span class="post-date">May 21, 2025</span>
+                    </a>
+                </div>
+            </div>
+            <div class="content-section" id="projects-section">
+                <div class="home-title">Projects</div>
+                <div class="posts-grid">
+                    <a href="https://github.com/6plosive/portfolio" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Portfolio made with Hugo</h3>
+                        <span class="post-date">Github - Jun 11, 2025</span>
+                    </a>
+                    <a href="https://github.com/6plosive/flappy-bird" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Flappy Bird</h3>
+                        <span class="post-date">Github - Dec 27, 2024</span>
+                    </a>
+                    <a href="https://github.com/6plosive/SkyblockReborn" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Skyblock Reborn</h3>
+                        <span class="post-date">Github - Dec 21, 2024</span>
+                    </a>
+                    <a href="https://github.com/6plosive/GoofyLang" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">GoofyLang</h3>
+                        <span class="post-date">Github - Nov 22, 2022</span>
+                    </a>
+                    <a href="https://github.com/6plosive/pong-mac" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Pong for Mac</h3>
+                        <span class="post-date">Github - Oct 10, 2022</span>
+                    </a>
+                    <a href="https://github.com/6plosive/Talking-Ben-Sound-Board" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Talking Ben Sound Board</h3>
+                        <span class="post-date">Github - Mar 17, 2022</span>
+                    </a>
+                    <a href="https://github.com/6plosive/Talking-Ben" target="_blank" rel="noopener noreferrer" class="post-card">
+                        <h3 class="post-title">Talking Ben</h3>
+                        <span class="post-date">Github - Mar 11, 2022</span>
+                    </a>
+                </div>
+            </div>
+            <div class="content-section" id="about-section">
+                <div class="home-title">About me</div>
+                <div class="about-me-para">Hi! I am Gabriel Yip, a 2nd year Computer Science student at UNSW. I am from Hong Kong but decided to pursue my studies in Australia. Sydney is awesome (but expensive)!</div>
+                <div class="about-me-para">I have been fascinated by coding from a very young age. When I was about 15, I started learning programming and built my first Minecraft plugin. It was a plugin that recreates some features/items in Hypixel Skyblock (Hyperion, F7 Dungeons if you are wondering). I posted showcase videos about it as well. The videos didn't get many views, but the experience sparked my interest in software development.</div>
+                <div class="about-me-para">In high school, I joined a few competitive programming competitions. With some basic C++ knowledge, I was able to solve some interesting problems and win some prizes from various competitions.</div>
+                <div class="about-me-para">While I was quite good at competitive programming, it never won my heart as much as when I joined my first CTF hosted by UNSW. The thrill of solving challenges with real world applications was unmatched. I got to apply my knowledge in software engineering while solving puzzles, which is so much fun to me. I ended up winning most of them. But most importantly, I got to learn more about cybersecurity and ethical hacking.</div>
+                <div class="about-me-para">Outside of coding and CTFs, I like to cycle around Sydney and explore new cafes. It is a great way to wind down from all the stress and breathe in the fresh air.</div>
+            </div>
+        </div>
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-section="home-section">Home</a>
+            <a href="#" class="nav-item" data-section="posts-section">Posts</a>
+            <a href="#" class="nav-item" data-section="projects-section">Projects</a>
+            <a href="#" class="nav-item" data-section="about-section">About me</a>
+        </nav>
+    </div>
+    <div class="scroll-tip">
+        <span>Try scrolling!</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 4V16M10 16L4 10M10 16L16 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="scroll-space"></div>
+</body>
+<script src="script.js"></script>
+</html>

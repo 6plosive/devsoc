@@ -1,0 +1,293 @@
+.cloud{
+  position: fixed;
+  top: 20vh;
+  left: 0;
+  width: 12vh;
+  height: 12vh;
+  background: url('/assets/cloud.png') no-repeat center/contain;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate3d(20vw, 0, 0);
+  animation: none;
+}
+
+.sun {
+  position: fixed;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48vh;
+  height: 48vh;
+  pointer-events: none;
+  z-index: 0;
+  animation: spin 60s linear infinite;
+}
+
+.moon {
+  position: fixed;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55vh;
+  height: 55vh;
+  pointer-events: none;
+  z-index: 0;
+  animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.scroll-tip {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
+  color: inherit;
+  font-size: 0.95rem;
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-tip.visible {
+  opacity: 1;
+}
+
+.scroll-tip svg {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60vh;
+  min-height: 320px;
+  overflow: hidden;
+  padding: 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  
+  /* Core semi-transparent white */
+  background: rgba(255, 255, 255, 0.18);
+  
+  /* Modern glass effect */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.1rem;
+  
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  
+  color: #0f172a;
+  transition: all 0.35s ease;
+}
+
+.card-content {
+  will-change: transform;
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.content-section {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+  padding-bottom: 2rem;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.scroll-space {
+  height: 600vh;
+}
+
+h2 {
+  margin: 0 0 1.1rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.home-pfp {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+.home-title {
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.home-description {
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 1.5rem;
+}
+
+.home-social {
+  text-align: center;
+  opacity: .8;
+  margin-bottom: 0.5rem;
+}
+
+.home-social a,
+.home-social a:visited,
+.home-social a:hover,
+.home-social a:active {
+  color: #1e293b;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.35rem;
+  
+}
+
+.home-social svg {
+  width: 2em;
+  height: 2em;
+  stroke: #1e293b;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 -2rem;
+  padding: 1rem 0;
+}
+
+.nav-item {
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  opacity: 0.7;
+}
+
+.nav-item.active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  margin: 0 1rem;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+}
+
+.post-description {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.nav-item:hover {
+  opacity: 0.7;
+}
+
+.about-me-para {
+  font-family: trebuchet ms, Verdana, verdana ref, segoe ui, Candara, lucida grande, lucida sans unicode, lucida sans, Tahoma, sans-serif;
+  /* text-align: center; */
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
