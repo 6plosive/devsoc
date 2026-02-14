@@ -146,6 +146,18 @@ function updateScrollTip(){
   }
 }
 
+function updatePfpSwap(){
+  if(!pfp1 || !pfp2){
+    return;
+  }
+  const t = getScrollProgress();
+  const start = 0.75;
+  const end = 0.82;
+  const localT = Math.min(1, Math.max(0, (t - start) / (end - start)));
+  pfp1.style.opacity = `${1 - localT}`;
+  pfp2.style.opacity = `${localT}`;
+}
+
 function onScroll(){
   if(!ticking){
     ticking = true;
@@ -154,6 +166,7 @@ function onScroll(){
     requestAnimationFrame(updateCardScroll);
     requestAnimationFrame(updateTextColor);
     requestAnimationFrame(updateScrollTip);
+    requestAnimationFrame(updatePfpSwap);
   }
 }
 
@@ -170,6 +183,8 @@ const body = document.body;
 const card = document.querySelector('.card');
 const cardContent = document.querySelector('.card-content');
 const scrollTip = document.querySelector('.scroll-tip');
+const pfp1 = document.querySelector('.home-pfp-1');
+const pfp2 = document.querySelector('.home-pfp-2');
 
 let ticking = false;
 
@@ -180,6 +195,7 @@ updateSky();
 updateCardScroll();
 updateTextColor();
 updateScrollTip();
+updatePfpSwap();
 
 // Tab navigation
 const navItems = document.querySelectorAll('.nav-item');
