@@ -117,7 +117,7 @@ function updateTextColor(){
   });
   
   // Update links
-  const links = card.querySelectorAll('.nav-item, .home-social a');
+  const links = card.querySelectorAll('.nav-item, .home-social a, .post-card');
   links.forEach(link => {
     link.style.color = color;
   });
