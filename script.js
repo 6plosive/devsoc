@@ -2,10 +2,21 @@ function lerp(a,b,t){
   return Math.round(a + (b - a) * t);
 }
 
-function updateBackground(){
+function getScrollProgress(){
   const scrollTop = window.scrollY || window.pageYOffset;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const t = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+  return maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+}
+
+function clampColor(start, end, t) {
+  const r = lerp(start.r, end.r, t);
+  const g = lerp(start.g, end.g, t);
+  const b = lerp(start.b, end.b, t);
+  return { r, g, b };
+}
+
+function updateBackground(){
+  const t = getScrollProgress();
   
   // spread t across the color stops and interpolate between the two nearest colors
   const pos = t * (skyColors.length - 1);
@@ -14,9 +25,7 @@ function updateBackground(){
   const localT = pos - i;
   const start = skyColors[i];
   const end = skyColors[j];
-  const r = lerp(start.r, end.r, localT);
-  const g = lerp(start.g, end.g, localT);
-  const b = lerp(start.b, end.b, localT);
+  const { r, g, b } = clampColor(start, end, localT);
   
   body.style.background = `rgb(${r}, ${g}, ${b})`;
   
@@ -25,9 +34,7 @@ function updateBackground(){
 
 function updateSky(){
   const clouds = document.querySelectorAll('.cloud');
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const t = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+  const t = getScrollProgress();
 
   clouds.forEach(cloud => {
     const start = parseFloat(cloud.dataset.start);
@@ -35,26 +42,9 @@ function updateSky(){
     const x = start + (end - start) * t;
     cloud.style.transform = `translate3d(${x}vw, 0, 0)`;
   });
-  function easeInExpo(x) {
-    return x === 0 ? 0 : Math.pow(2, 10 * x - 10);
-  }
-  function easeOutExpo(x) {
-    return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
-  }
-  function easeInOutQuad(x) {
-    return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-  }
+
   function easeInOutCubic(x) {
     return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-  }
-  function easeInQuart(x) {
-    return x * x * x * x;
-  }
-  function easeOutQuart(x) {
-    return 1 - Math.pow(1 - x, 4);
-  }
-  function easeInOutQuart(x) {
-    return x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2;
   }
 
   // sun
@@ -82,9 +72,7 @@ function updateCardScroll(){
   if(!card || !cardContent){
     return;
   }
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const t = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+  const t = getScrollProgress();
   
   // Get active content section
   const activeSection = document.querySelector('.content-section.active');
@@ -111,17 +99,13 @@ function updateTextColor(){
   //   { r: 226, g: 232, b: 240 },  // #e2e8f0 - very light
   //   { r: 248, g: 250, b: 252 }   // #f8fafc - near white (end)
   // ];
-  const scrollTop = window.scrollY || window.pageYOffset;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const t = maxScroll > 0 ? Math.min(1, Math.max(0, scrollTop / maxScroll)) : 0;
+  const t = getScrollProgress();
   
   const start = { r: 15,  g: 23,  b: 42 }; // #0f172a
   const end = { r: 226, g: 232, b: 240 }; // #e2e8f0
-  // Only change color between 0.7 - 0.9
-  const localT = (t - 0.7) / (0.9 - 0.7);
-  const r = lerp(start.r, end.r, localT);
-  const g = lerp(start.g, end.g, localT);
-  const b = lerp(start.b, end.b, localT);
+  // Only change color between 0.75 - 0.8
+  const localT = (t - 0.75) / (0.8 - 0.75);
+  const { r, g, b } = clampColor(start, end, localT);
   
   const color = `rgb(${r}, ${g}, ${b})`;
   card.style.color = color;
@@ -133,7 +117,7 @@ function updateTextColor(){
   });
   
   // Update links
-  const links = card.querySelectorAll('.nav-item, .home-social a, .post-card');
+  const links = card.querySelectorAll('.nav-item, .home-social a');
   links.forEach(link => {
     link.style.color = color;
   });
